@@ -1,0 +1,18 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "overleaf-agent"
+version = "0.1.0"
+description = "A local MCP writing assistant for LaTeX and Overleaf-style projects."
+requires-python = ">=3.11"
+dependencies = [
+    "mcp>=1.8.0",
+]
+
+[project.scripts]
+overleaf-agent-mcp = "overleaf_agent.mcp_server:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
