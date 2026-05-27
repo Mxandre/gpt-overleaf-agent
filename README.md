@@ -4,6 +4,50 @@ A local MCP writing assistant for LaTeX and Overleaf-style projects.
 
 This server lets GPT Developer Mode work with LaTeX projects on your local machine. It can inspect projects, retrieve section context, validate edits, apply confirmed edits, compile with `latexmk`, clean build artifacts, and initialize a project from a confirmed template URL.
 
+## Quick Start
+
+Install these first:
+
+- Python 3.11 or newer
+- MiKTeX
+- Strawberry Perl
+- ngrok, if you want GPT Developer Mode to reach your local MCP server
+
+Then install and start the server:
+
+```powershell
+git clone https://github.com/YOUR_NAME/overleaf-agent.git
+cd overleaf-agent
+
+conda create -n overleaf-agent python=3.11 -y
+conda activate overleaf-agent
+pip install -e .
+
+powershell -ExecutionPolicy Bypass -File .\scripts\start_http_server.ps1 `
+  -WorkspaceDir "PATH\TO\YOUR\WORKSPACE" `
+  -Port 8000 `
+  -PythonExe "PATH\TO\YOUR\CONDA\ENV\python.exe"
+```
+
+Examples:
+
+```powershell
+-WorkspaceDir "D:\latex-projects"
+-PythonExe "D:\Anaconda\envs\overleaf-agent\python.exe"
+```
+
+Expose the local server with ngrok:
+
+```powershell
+ngrok http 8000
+```
+
+Use the generated endpoint in GPT Developer Mode:
+
+```text
+https://xxxx.ngrok-free.app/mcp
+```
+
 ## Motivation
 
 Researchers often use LLMs to polish academic papers, but the workflow is still awkward: copy text from Overleaf, paste it into GPT, copy the revision back, then manually find the right section again and hope the LaTeX still compiles.
