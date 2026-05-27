@@ -1,4 +1,4 @@
-# overleaf-agent
+# gpt-overleaf-agent
 
 A local MCP writing assistant for LaTeX and Overleaf-style projects.
 
@@ -6,18 +6,8 @@ This server lets GPT Developer Mode work with LaTeX projects on your local machi
 
 ## Workflow
 
-```mermaid
-flowchart TD
-    A["User / Researcher"] --> B["GPT in Developer Mode"]
-    B --> C["overleaf-agent MCP server"]
-    C --> D["LaTeX project in local workspace"]
-    D --> E["Retrieve context"]
-    E --> F["Validate edits"]
-    F --> G["Apply confirmed edits"]
-    G --> H["Compile LaTeX"]
-    H --> I["Clean build artifacts"]
-    I --> J["Updated paper + compile feedback"]
-```
+![workflow](docs/imgs/mermaid-diagram.png)
+
 ## Demo
 
 ![overleaf-agent demo](docs/imgs/overleaf-agent-demo.gif)
@@ -35,7 +25,7 @@ Install these first:
 Then install and start the server:
 
 ```powershell
-git clone https://github.com/YOUR_NAME/overleaf-agent.git
+git clone https://github.com/Mxandre/gpt-overleaf-agent
 cd overleaf-agent
 
 conda create -n overleaf-agent python=3.11 -y
