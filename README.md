@@ -4,6 +4,25 @@ A local MCP writing assistant for LaTeX and Overleaf-style projects.
 
 This server lets GPT Developer Mode work with LaTeX projects on your local machine. It can inspect projects, retrieve section context, validate edits, apply confirmed edits, compile with `latexmk`, clean build artifacts, and initialize a project from a confirmed template URL.
 
+## Workflow
+
+```mermaid
+flowchart TD
+    A["User / Researcher"] --> B["GPT in Developer Mode"]
+    B --> C["overleaf-agent MCP server"]
+    C --> D["LaTeX project in local workspace"]
+    D --> E["Retrieve context"]
+    E --> F["Validate edits"]
+    F --> G["Apply confirmed edits"]
+    G --> H["Compile LaTeX"]
+    H --> I["Clean build artifacts"]
+    I --> J["Updated paper + compile feedback"]
+```
+## Demo
+
+![overleaf-agent demo](docs/imgs/overleaf-agent-demo.gif)
+
+
 ## Quick Start
 
 Install these first:
@@ -47,6 +66,7 @@ Use the generated endpoint in GPT Developer Mode:
 ```text
 https://xxxx.ngrok-free.app/mcp
 ```
+
 
 ## Motivation
 
